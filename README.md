@@ -1,9 +1,9 @@
-# Netflix Letterboxd API
+# Uniao Rio Projections API
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=for-the-badge)](http://commitizen.github.io/cz-cli/)
 
 ## Description
 
-This is an API for storing the catalogue of Netflix Movies and getting movies from Letterboxd Lists
+This is an API for storing COVID-19 projections in the state of Rio de Janeiro, Brazil, made by the União Rio Team
 
 Based on https://github.com/cosmic-byte/flask-restplus-boilerplate.
 
@@ -21,14 +21,7 @@ Based on https://github.com/cosmic-byte/flask-restplus-boilerplate.
   - `python manage.py db upgrade`
 - Run `python manage.py db run`
 
-That's it! 
-
-If you want to populate the database with movies:
-- Create an user
-- Give it admin status by editing the admin value on `PgAdmin4`
-- Log in and get the Auth Token
-- Replace it in the `.env` file
-- Run `search.py`
+That's it!
 
 
 ## Contributing
