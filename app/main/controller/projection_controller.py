@@ -10,23 +10,38 @@ api = ProjectionDto.api
 _projection = ProjectionDto.projection
 
 
-@api.route('/')
+@api.route('/city')
 @api.param('date', 'Search by date')
-class ProjectionList(Resource):
-    @api.doc('List of projections')
+class CityProjectionList(Resource):
     @api.marshal_list_with(_projection, envelope='data')
     def get(self):
-        """List all projections"""
-        return get_all_projections(request.args)
+        """List all city projections"""
+        return get_all_projections(request.args, 'city')
 
     @api.response(201, 'Projection successfully created.')
-    @api.doc('create a new projection')
     @api.expect(_projection, validate=False)
     # @admin_token_required
     def post(self):
-        """Creates a new Projection """
+        """Creates a new city Projection """
         data = request.json
-        return save_new_projection(data=data)
+        return save_new_projection(data=data, type='city')
+
+
+@api.route('/state')
+@api.param('date', 'Search by date')
+class StateProjectionList(Resource):
+    @api.marshal_list_with(_projection, envelope='data')
+    def get(self):
+        """List all state projections"""
+        return get_all_projections(request.args, 'state')
+
+    @api.response(201, 'Projection successfully created.')
+    @api.expect(_projection, validate=False)
+    # @admin_token_required
+    def post(self):
+        """Creates a new state Projection """
+        data = request.json
+        return save_new_projection(data=data, type='state')
 
 
 @api.route('/<id>')

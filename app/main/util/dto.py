@@ -23,7 +23,7 @@ class ProjectionDto:
     api = Namespace('projection', description='projection related operations')
     projection = api.model('projection', {
         'id': fields.String(readonly=True, description='Projection id'),
-        'type': fields.String(required=True, description='Projection type'),
+        # 'type': fields.String(required=True, description='Projection type'),
         'date': fields.Date(required=True, description='Projection date'),
         'cases': fields.Integer(required=True, description='Projected cases on date'),
         'leitos': fields.Integer(required=True, description='Projected leitos on date'),

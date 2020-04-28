@@ -13,14 +13,14 @@ def save_changes(data):
     db.session.commit()
 
 
-def save_new_projection(data):
+def save_new_projection(data, type):
     projection = Projection.query.filter_by(
-        date=data['date']).first()
+        date=data['date'], type=type).first()
     if not projection:
         try:
             new_projection = Projection(
                 date=data['date'],
-                type=data['type'].lower(),
+                type=type,
                 cases=data['cases'],
                 leitos=data['leitos'],
             )
@@ -39,7 +39,7 @@ def save_new_projection(data):
     else:
         try:
             projection.date = data['date'],
-            projection.type = data['type'].lower()
+            projection.type = type,
             projection.cases = data['cases']
             projection.leitos = data['leitos']
 
@@ -75,8 +75,8 @@ def delete_a_projection(projection):
         return response_object, 404
 
 
-def get_all_projections(args):
-    projections = Projection.query
+def get_all_projections(args, type):
+    projections = Projection.query.filter_by(type=type)
 
     date = args.get('date', None)
 
