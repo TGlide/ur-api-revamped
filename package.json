@@ -1,7 +1,7 @@
 {
-  "name": "netflix-movies-api",
+  "name": "ur-api-revamp",
   "version": "1.0.0",
-  "description": "api for netflix",
+  "description": "Uniao Rio API",
   "dependencies": {
     "cz-emoji": "^1.2.1"
   },

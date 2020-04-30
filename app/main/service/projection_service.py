@@ -21,8 +21,8 @@ def save_new_projection(data, type):
             new_projection = Projection(
                 date=data['date'],
                 type=type,
-                cases=data['cases'],
-                leitos=data['leitos'],
+                cases=data.get('cases', 0),
+                leitos=data.get('leitos', 0),
             )
             save_changes(new_projection)
             response_object = {
@@ -40,8 +40,8 @@ def save_new_projection(data, type):
         try:
             projection.date = data['date'],
             projection.type = type,
-            projection.cases = data['cases']
-            projection.leitos = data['leitos']
+            projection.cases = data.get('cases', projection.cases),
+            projection.leitos = data.get('leitos', projection.leitos)
 
             db.session.commit()
 
